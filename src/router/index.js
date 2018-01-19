@@ -4,6 +4,7 @@ import HelloWorld from 'COMPS/HelloWorld';
 import Directives from 'CUSTOM/Directives';
 import Filters from 'CUSTOM/Filters';
 import Test from 'CUSTOM/Test';
+import Train from 'CUSTOM/Train';
 
 Vue.use(Router);
 
@@ -29,6 +30,11 @@ export default new Router({
       path: '/Test',
       name: 'Test',
       component: Test,
+    },
+    {
+      path: '/train',
+      name: 'train',
+      component: Train
     }
   ]
 })

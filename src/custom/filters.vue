@@ -1,6 +1,6 @@
 <template>
   <p class="filter" :id="rawId | formatId('-end') | unFormatId('Raw')">
-    <span>
+    <span @click="saySomething('clicked')">
     {{content | trim | addPreFix}}
     </span>
   </p>
@@ -32,6 +32,11 @@
           return exec1.toUpperCase();
         });
         return first + last + fix;
+      }
+    },
+    methods: {
+      saySomething(word) {
+        window.alert(word)
       }
     }
   }
