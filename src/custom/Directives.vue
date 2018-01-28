@@ -3,6 +3,7 @@
     This is test for vue directives.
     <input type="text" v-focus>
     <input type="text" v-circle>
+    <router-link to="/filters" replace>replaced by filters</router-link>
   </p>
 </template>
 
