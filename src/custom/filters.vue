@@ -3,6 +3,7 @@
     <span @click="saySomething('clicked')">
     {{content | trim | addPreFix}}
     </span>
+    <button class="back" @click="toBack">back</button>
   </p>
 </template>
 
@@ -27,7 +28,7 @@
         return first + last + fix;
       },
       unFormatId(value, fix) {
-        let first  = value.slice(0, 1).toUpperCase();
+        let first = value.slice(0, 1).toUpperCase();
         let last = value.slice(1).replace(/-(.)/g, function (select, exec1) {
           return exec1.toUpperCase();
         });
@@ -37,6 +38,10 @@
     methods: {
       saySomething(word) {
         window.alert(word)
+      },
+      toBack() {
+        console.log('toBack');
+        this.$router.go(-1);
       }
     }
   }
@@ -46,6 +51,10 @@
   .filter {
     background-color: aliceblue;
     text-align: left;
+  }
+
+  .back {
+
   }
 
 </style>
