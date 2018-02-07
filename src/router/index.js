@@ -35,6 +35,12 @@ export default new Router({
       path: '/train',
       name: 'train',
       component: Train
+    },
+    {
+      path: '/main',
+      component(resolve) {
+        require(['../views/Main.vue'], resolve);
+      }
     }
   ]
 })

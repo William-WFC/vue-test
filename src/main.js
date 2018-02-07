@@ -5,9 +5,13 @@ import '@/directives/vue_directives'
 import '@/filters/vue_filters'
 import App from './App'
 import router from './router'
-import elementUi from 'element-ui'
+// import bootstrap from 'bootstrap'
+// import 'jquery';
+// require('bootstrap');
+// window.jQuery = require('jquery');
+// import 'bootstrap';
 
-Vue.use(elementUi);
+// Vue.use(bootstrap);
 
 Vue.config.productionTip = false;
 

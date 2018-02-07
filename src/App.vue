@@ -1,29 +1,33 @@
 <template>
-  <div id="app">
-    <router-view/>
+  <div id="app" class="container-fluid">
+    <div class="col-sm-2 navi">
+      <Navi/>
+    </div>
+    <div class="col-sm-10 col-sm-offset-2">
+      <Header></Header>
+      <router-view/>
+      <Footer></Footer>
+    </div>
   </div>
 </template>
 
 <script>
+  import Navi from './views/Navi.vue';
+  import Header from './views/Header';
+  import Footer from './views/Footer';
+
   export default {
-    name: 'app'
+    name: 'app',
+    components: {Navi, Header, Footer}
   }
 </script>
 
-<style>
-  html, body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    overflow: auto;
-  }
+<style lang="scss">
 
   #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: #2c3e50;
-    overflow: auto;
+    .navi {
+      position: fixed;
+    }
   }
   .clear::before {
     content: '';

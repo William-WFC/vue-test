@@ -29,6 +29,7 @@ module.exports = {
       '@': resolve('src'),
       'COMPS': resolve('src/components'),
       'CUSTOM': resolve('src/custom'),
+      'jQuery': 'jquery',
     }
   },
   module: {
