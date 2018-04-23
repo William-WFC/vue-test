@@ -4,6 +4,7 @@ import HelloWorld from 'COMPS/HelloWorld';
 import Directives from 'CUSTOM/Directives';
 import Filters from 'CUSTOM/Filters';
 import Test from 'CUSTOM/Test';
+import Test2 from 'CUSTOM/test2';
 import Train from 'CUSTOM/Train';
 
 Vue.use(Router);
@@ -29,7 +30,7 @@ export default new Router({
     {
       path: '/Test',
       name: 'Test',
-      component: Test,
+      component: Test2,
     },
     {
       path: '/train',
