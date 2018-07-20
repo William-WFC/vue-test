@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import '@/directives/vue_directives'
 import '@/filters/vue_filters'
+import './util/clamp';
 import App from './App'
 import router from './router'
 // import bootstrap from 'bootstrap'
