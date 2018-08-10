@@ -3,9 +3,7 @@ import Router from 'vue-router'
 import HelloWorld from 'COMPS/HelloWorld';
 import Directives from 'CUSTOM/Directives';
 import Filters from 'CUSTOM/Filters';
-import Test from 'CUSTOM/Test';
-import Test2 from 'CUSTOM/test2';
-import test3 from 'CUSTOM/test3';
+import test from 'CUSTOM/test2';
 import Train from 'CUSTOM/Train';
 
 Vue.use(Router);
@@ -31,7 +29,7 @@ export default new Router({
     {
       path: '/Test',
       name: 'Test',
-      component: test3,
+      component: test,
     },
     {
       path: '/train',
