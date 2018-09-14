@@ -9,38 +9,46 @@ import Train from 'CUSTOM/Train';
 Vue.use(Router);
 
 export default new Router({
-  mode: 'history',
-  routes: [
-    {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
-    },
-    {
-      path: '/directives',
-      name: 'Directives',
-      component: Directives,
-    },
-    {
-      path: '/filters',
-      name: 'Filters',
-      component: Filters,
-    },
-    {
-      path: '/Test',
-      name: 'Test',
-      component: test,
-    },
-    {
-      path: '/train',
-      name: 'train',
-      component: Train
-    },
-    {
-      path: '/main',
-      component(resolve) {
-        require(['../views/Main.vue'], resolve);
-      }
-    }
-  ]
+    // mode: 'history',
+    routes: [
+        {
+            path: '/',
+            name: 'HelloWorld',
+            component: HelloWorld
+        },
+        {
+            path: '/directives',
+            name: 'Directives',
+            component: Directives,
+        },
+        {
+            path: '/filters',
+            name: 'Filters',
+            component: Filters,
+        },
+        {
+            path: '/test',
+            name: 'Test',
+            component: test,
+        },
+        {
+            path: '/train',
+            name: 'train',
+            component: Train
+        },
+        {
+            path: '/main',
+            name: 'main',
+            component(resolve) {
+                require(['../views/Main.vue'], resolve);
+            }
+        },
+        {
+            path: '/keep_alive',
+            name: 'keep_alive',
+            component(resolve) {
+                require(['../custom/keep_alive/index.vue'], resolve);
+            }
+        }
+    ]
 })

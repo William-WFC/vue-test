@@ -1,13 +1,6 @@
 <template>
-  <div id="app" class="container-fluid">
-    <div class="col-sm-2 navi">
-      <Navi/>
-    </div>
-    <div class="col-sm-10 col-sm-offset-2">
-      <Header></Header>
+  <div id="app">
       <router-view/>
-      <Footer></Footer>
-    </div>
   </div>
 </template>
 
