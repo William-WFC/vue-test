@@ -9,7 +9,10 @@
 
     export default {
         name: 'folder-box',
-        components: {folder},
+        components: {
+            folder,
+            t2: () => import('../inline_template/cps/t2.vue')
+        },
         data() {
             return {
                 folder: {
