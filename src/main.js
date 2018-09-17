@@ -15,10 +15,16 @@ import router from './router'
 // Vue.use(bootstrap);
 
 Vue.config.productionTip = false;
+// import ttt from './custom/keep_alive/cps/t1';
+// Vue.component('ttt', ttt);
 
 new Vue({
-  el: '#app',
-  router,
-  template: '<App/>',
-  components: { App }
+    data: {
+        a: 'a',
+        b: 'b'
+    },
+    el: '#app',
+    router,
+    template: '<App/>',
+    components: {App}
 });

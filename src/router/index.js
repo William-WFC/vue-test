@@ -49,6 +49,13 @@ export default new Router({
             component(resolve) {
                 require(['../custom/keep_alive/index.vue'], resolve);
             }
-        }
+        },
+        {
+            path: '/folder',
+            // name: 'keep_alive',
+            component(resolve) {
+                require(['../custom/folder/index.vue'], resolve);
+            }
+        },
     ]
 })

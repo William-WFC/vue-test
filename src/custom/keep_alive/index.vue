@@ -1,11 +1,12 @@
 <template>
   <div class="alive">
       abc
-      <keep-alive>
-          <testA v-if="isShowA"/>
+      <keep-alive include="a">
+          <testA :a="1" :b="2" v-if="isShowA" ref="testA"/>
           <testB v-else/>
       </keep-alive>
       <button @click="switchCom">切换</button>
+      <button @click="add">+1</button>
 
   </div>
 </template>
@@ -20,18 +21,43 @@
         data() {
             return {
                 isShowA: true,
+                inject: 'index-inject',
+                dataB: 1
             }
         },
-        activated() {
-            console.log('index activated');
+        mounted() {
+            this.$refs.testA.$on('clicked1', () => {
+                if (this.$refs.testA.clickedCount>=5) {
+                    this.$refs.testA.$off();
+                }
+                console.log('testA clicked111');
+            });
+            this.$refs.testA.$on('clicked2', () => {
+                console.log('testA clicked222');
+                if (this.$refs.testA.clickedCount>=10) {
+                    this.$refs.testA.$off('clicked2');
+                }
+            });
+
         },
-        deactivated() {
-            console.log('index deactivated');
+        provide: function () {
+            return {
+                printA: this.printA,
+                dataB: this.dataB,
+            }
         },
         methods: {
             switchCom() {
+
                 this.isShowA = !this.isShowA;
-            }
+            },
+            printA() {
+                console.log(this.inject);
+            },
+            add() {
+                this.dataB++;
+            },
+
         }
     }
 </script>
