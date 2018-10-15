@@ -69,5 +69,11 @@ export default new Router({
                 require(['../custom/async/index.vue'], resolve);
             }
         },
+        {
+            path: '/scope',
+            component(resolve) {
+                require(['../custom/slot_scope/index.vue'], resolve);
+            }
+        },
     ]
 })
