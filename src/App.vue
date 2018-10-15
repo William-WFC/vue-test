@@ -1,5 +1,12 @@
 <template>
     <div id="app">
+        <router-link to="inline" class="tags-li-title">
+            to inline
+        </router-link>
+        <router-link to="async" class="tags-li-title">
+            to async
+        </router-link>
+
         <router-view/>
     </div>
 </template>

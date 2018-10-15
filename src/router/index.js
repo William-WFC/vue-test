@@ -63,5 +63,11 @@ export default new Router({
                 require(['../custom/inline_template/index.vue'], resolve);
             }
         },
+        {
+            path: '/async',
+            component(resolve) {
+                require(['../custom/async/index.vue'], resolve);
+            }
+        },
     ]
 })
