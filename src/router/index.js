@@ -75,5 +75,29 @@ export default new Router({
                 require(['../custom/slot_scope/index.vue'], resolve);
             }
         },
+        {
+            path: '/a',
+            component(resolve) {
+                require(['../views/animate/a_a.vue'], resolve);
+            }
+        },
+        {
+            path: '/b',
+            component(resolve) {
+                require(['../views/animate/a_b.vue'], resolve);
+            }
+        },
+        {
+            path: '/c',
+            component(resolve) {
+                require(['../views/animate/a_c.vue'], resolve);
+            }
+        },
+        {
+            path: '/d',
+            component(resolve) {
+                require(['../views/animate/a_d.vue'], resolve);
+            }
+        },
     ]
 })
