@@ -1,5 +1,6 @@
 <template>
     <div class="a_a">
+        <span class="word">abcdefghiabcdefghi</span>
 
     </div>
 </template>
@@ -14,5 +15,9 @@
     .a_a {
         background: #42b983;
         height: 300px;
+        .word {
+            font-size: 20px;
+            width: 100px;
+        }
     }
 </style>
