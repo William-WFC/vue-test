@@ -99,5 +99,11 @@ export default new Router({
                 require(['../views/animate/a_d.vue'], resolve);
             }
         },
+        {
+            path: '/svg',
+            component(resolve) {
+                require(['../views/svg/index.vue'], resolve);
+            }
+        },
     ]
 })
