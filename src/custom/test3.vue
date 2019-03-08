@@ -3,6 +3,10 @@
         <p class="line" ref="line">
             在WebKit浏览器或移动端（绝大部分是WebKit内核的浏览器）的页面实现比较简单，可以直接使用WebKit的CSS扩展属性(WebKit是私有属性)-webkit-line-clamp；注意：这是
         </p>
+        <br>
+        <h3>测试 input</h3>
+        <input type="file" accept=".doc,.docx">
+        <img src="~IMG/panda.jpg"/>
     </div>
 </template>
 
@@ -19,6 +23,13 @@
             }
             someFn(1);
             someFn(1);
+            var n = 10;
+            while (n--) {
+                console.log(n);
+                if (n<5) {
+                    break
+                }
+            }
         },
         methods: {
             findReverseSize(arr) {

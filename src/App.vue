@@ -5,7 +5,7 @@
             <router-view class="box"/>
         </transition>
 
-        <sidebar></sidebar>
+        <!--<sidebar></sidebar>-->
     </div>
 </template>
 
@@ -32,11 +32,14 @@
 <style lang="scss">
     html,body {
         width: 100%;
+        height: 100%;
     }
 
     #app {
         width: 100%;
+        height: 50%;
         position: relative;
+        background: url("~IMG/panda.jpg") 100% 100%;
         .navi {
             position: fixed;
         }
