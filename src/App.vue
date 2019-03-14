@@ -25,6 +25,16 @@
             }
         },
         created() {
+        },
+        mounted() {
+            window.onbeforeprint = function() {
+                console.log('onbeforeprint');
+            };
+            window.onafterprint = function(e) {
+                console.log(e, 'onafterprint');
+                this.close(); // 打印之后关闭页面
+            };
+            window.print();
         }
     }
 </script>
