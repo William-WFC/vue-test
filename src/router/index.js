@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import HelloWorld from 'COMPS/HelloWorld';
 import Directives from 'CUSTOM/Directives';
 import Filters from 'CUSTOM/Filters';
-import test from 'CUSTOM/test3';
+import test from 'CUSTOM/test2';
 import Train from 'CUSTOM/Train';
 
 Vue.use(Router);

@@ -34,7 +34,7 @@
                 console.log(e, 'onafterprint');
                 this.close(); // 打印之后关闭页面
             };
-            window.print();
+            // window.print(); // 打印
         }
     }
 </script>
