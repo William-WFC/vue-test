@@ -14,7 +14,6 @@
                         <li class="li">5</li>
                     </ul>
                 </div>
-                <img class="img" src="~IMG/panda.jpg" alt="">
             </div>
         </div>
 

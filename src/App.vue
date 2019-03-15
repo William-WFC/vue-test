@@ -1,6 +1,5 @@
 <template>
     <div id="app">
-
         <transition name="slide-fade">
             <router-view class="box"/>
         </transition>
@@ -49,7 +48,6 @@
         width: 100%;
         height: 50%;
         position: relative;
-        background: url("~IMG/panda.jpg") 100% 100%;
         .navi {
             position: fixed;
         }

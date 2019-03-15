@@ -6,7 +6,6 @@
         <br>
         <h3>测试 input</h3>
         <input type="file" accept=".doc,.docx">
-        <img src="~IMG/panda.jpg"/>
     </div>
 </template>
 
