@@ -20,6 +20,12 @@
             </svg>
             <span id="timeSecond" class="time-second"></span>
         </div>
+        <div class="img-box">
+            <div class="inner">
+                12345
+                <img src="~IMG/timg.jpg" alt="" class="img">
+            </div>
+        </div>
     </div>
 </template>
 
@@ -29,7 +35,7 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
     .svg {
         /*margin: 0 auto;*/
         margin-left: 200px;
@@ -50,5 +56,26 @@
         margin-top: -.75em;
         text-align: center;
         font-size: 100px;
+    }
+    .img-box {
+        width: 100%;
+        height: 100px;
+        position: relative;
+        display: flex;
+        .inner {
+            position: absolute;
+            margin: 0 auto;
+            width: 50px;
+            height: 50px;
+            background-color: bisque;
+            z-index: 10;
+            .img {
+                width: 100px;
+                height: 100px;
+                position: absolute;
+                top: 0;
+            }
+        }
+
     }
 </style>

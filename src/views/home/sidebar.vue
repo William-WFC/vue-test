@@ -47,7 +47,7 @@
         z-index: 100;
         background: #eee;
         top: 50px;
-        .ul{
+        .ul {
             padding-top: 350px;
             .li {
                 line-height: 30px;

@@ -13,7 +13,8 @@
         name: "timer",
         mounted() {
             if (window.addEventListener) {
-                var range = document.querySelector("#range"), circle = document.querySelectorAll("circle")[1];
+                const range = document.querySelector("#range"), circle = document.querySelectorAll("circle")[1];
+                range = 5;
                 if (range && circle) {
                     range.addEventListener("change", function() {
                         var percent = this.value / 100, perimeter = Math.PI * 2 * 170;
