@@ -47,11 +47,28 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: 'url-loader',
-        options: {
-          limit: 10000,
-          name: utils.assetsPath('img/[name].[hash:7].[ext]')
-        }
+        // loader: 'url-loader',
+        // options: {
+        //   limit: 10000,
+        //   name: utils.assetsPath('img/[name].[hash:7].[ext]')
+        // }
+          loader: [
+              {
+                  loader: 'url-loader',
+                  options: {
+                    limit: 10000,
+                    name: utils.assetsPath('img/[name].[hash:7].webp') // 因为后面把图片转成了 webp 格式，所以在这里更改格式
+                  }
+              },
+              {
+                  loader: 'image-webpack-loader',
+                  options: {
+                      webp: {
+                          quality: 80 // 图片质量（0-100）：默认 75
+                      }
+                  },
+              },
+          ]
       },
       {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,

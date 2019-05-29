@@ -1,11 +1,10 @@
 <template>
     <div id="app">
-
         <transition name="slide-fade">
             <router-view class="box"/>
         </transition>
 
-        <sidebar></sidebar>
+        <!--<sidebar></sidebar>-->
     </div>
 </template>
 
@@ -25,6 +24,16 @@
             }
         },
         created() {
+        },
+        mounted() {
+            window.onbeforeprint = function() {
+                console.log('onbeforeprint');
+            };
+            window.onafterprint = function(e) {
+                console.log(e, 'onafterprint');
+                this.close(); // 打印之后关闭页面
+            };
+            // window.print(); // 打印
         }
     }
 </script>
@@ -32,10 +41,12 @@
 <style lang="scss">
     html,body {
         width: 100%;
+        height: 100%;
     }
 
     #app {
         width: 100%;
+        height: 50%;
         position: relative;
         .navi {
             position: fixed;

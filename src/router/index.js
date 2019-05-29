@@ -36,6 +36,11 @@ export default new Router({
             name: 'train',
             component: Train
         },
+        {
+            path: '/image',
+            name: 'image',
+            component: resolve => require(['CUSTOM/image_list.vue'], resolve)
+        },
         // {
         //     path: '/main',
         //     name: 'main',

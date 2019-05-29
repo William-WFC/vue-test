@@ -38,7 +38,5 @@
   .img {
     width: 922px;
     height: 420px;
-
-    background: url("~IMG/w_bg.png");
   }
 </style>
