@@ -110,5 +110,17 @@ export default new Router({
                 require(['../views/svg/index.vue'], resolve);
             }
         },
+        {
+            path: '/drop',
+            component(resolve) {
+                require(['../views/drop/index.vue'], resolve);
+            }
+        },
+        {
+            path: '/clone',
+            component(resolve) {
+                require(['../views/drop/clone.vue'], resolve);
+            }
+        },
     ]
 })

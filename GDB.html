@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+  <p ref="one1">原始字符串: {{ message }}</p>
+    <span class="p"
+       v-for="(item,index) in list"
+       :key="index"
+       ref="test1"
+    >{{item}}</span>
+</div>
+
+<script>
+new Vue({
+  el: '#app',
+    // template: '<div>hhh</div>',
+  data: {
+    message: 'guodongbo',
+      show:false,
+    list:['我是五个字','我是六个字呀','我可能是七个字','我也许是八个字呢']
+  },
+  computed: {
+    // 计算属性的 getter
+
+  },
+  created () {
+    // this.$nextTick(()=>{
+    //   this.js();
+    // })
+    // this.js();
+  },
+  mounted(){
+    // this.js();
+  },
+  methods: {
+    cls(n){
+      return "p-"+n
+    },
+    js(){
+      console.log('第一个宽度',this.$refs.one1.clientWidth)
+      max_lenth = 0
+      let p = this.$refs.test1
+      p.forEach((p)=>{
+        let width = p.clientWidth
+        // if (width>max_lenth){
+        //   max_lenth = width
+        //   console.log('刷新宽度记录',max_lenth,width)
+        // } else {
+        //   console.log('走的是else',max_lenth,width)
+        // }
+        // p.style.width=max_lenth+'px'
+        console.log(width)
+      })
+      // console.log(max_lenth)
+    }
+  }
+})
+</script>
+<style>
+  .p{
+    /*display: inline-block;*/
+    width: 200px;
+    border: 1px red solid;
+  }
+</style>
+</body>
+</html>

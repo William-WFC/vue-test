@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <title>提交作业</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="{% static 'vue.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'work.css' %}">
+    <!--数学公式加载-->
+    <script type="text/javascript"
+            src="https://file.uhongedu.com/desktop/basis/mathjax_2.7.5/MathJax.js?config=TeX-AMS_SVG"></script>
+</head>
+<body>
+
+<div id="app">
+    <div class="inner">
+        <div v-show="loading" class="loading">
+            <div style="text-align: center">
+                <img :class="{'img_s':load_type==1}" v-if="load_type==1" src="{% static 'images/lying_down.gif' %}"
+                     alt="">
+                <img v-else-if="load_type==2" src="{% static 'images/main_image.png' %}" alt="">
+                <img v-else-if="load_type==3" src="{% static 'images/pet_fabulous.gif' %}" alt="">
+                <img v-else-if="load_type==4" src="{% static 'images/pet_fabulous.gif' %}" alt="">
+                <img v-else="load_type==5" src="{% static 'images/main_image.png' %}" alt="">
+                <div class="load-txt rem_2" v-html="load_txt"></div>
+            </div>
+        </div>
+        {# 返回弹窗样式 #}
+        <div class="back" v-show="is_back">
+            <div class="bounced">
+                <div class="bounced_one">
+                    <img class="bounced_img" src="{% static 'images/embarrassed.gif' %}" alt="">
+                    <div class="bounced_con">还有未提交的试题，确定</br>离开吗？</div>
+                </div>
+                <div class="bounced_btn bounced_btn_one">确定</div>
+                <div class="bounced_btn bounced_btn_two">继续提交</div>
+            </div>
+        </div>
+        {# 试题样式 #}
+        <div v-show="q_show" class="question_info">
+            <div class="top_span">请将个性化作业的答案提交到手机上</div>
+            <!--{# 头部导航部分#}-->
+            <div class="class_body">
+                <div class="progress">
+                    <p class="out"></p>
+                    <p class="inner" :style="{width:(this.cur_num / this.q_data.total_num)*100 + '%'}"></p>
+                </div>
+                <div class="text">
+                    <span class="cur" v-html="cur_num"></span>
+                    <span class="all" v-html="'/' + q_data.total_num"></span>
+                </div>
+            </div>
+            {# 题干部分 #}
+            <div class="question" v-for="(item,index) in q_data.q_list"
+                 v-if="cur_num==index+1">
+                <div>
+                    <div class="question_type" v-html="item.structure==1? '薄弱经验' : '纠错训练'"></div>
+
+                    <div class="q_sub">
+                        <div v-if="item.subject.content" class="q_subject"
+                             v-html="item.q_no+'.'+item.subject.content"></div>
+                        <img v-if="item.subject.image_url" :src="item.subject.image_url" alt="">
+
+                        <div class="ask_info" v-html="ask_info_sub(item)"></div>
+                        <img v-if="item.ask_info.subject.image_url" :src="item.ask_info.subject.image_url" alt="">
+                        {#选项部分#}
+                        <div>
+                            <div @click="sel_opt(index,row.is_right)"
+                                 :class="{'options-sel':curSelOpIndex==index,'options':true}"
+                                 v-for="(row,index) in item.ask_info.options" ref="options">
+                                <div class="A" v-html="opts[index]+'.'"></div>
+                                <div class="opt-con">
+                                    <div class="opt"
+                                         v-html="item.ask_info.options.length==1? '我已作答完成' :row.content.content"></div>
+                                    <img v-if="row.content.image_url" :src="row.content.image_url" alt="">
+                                </div>
+                            </div>
+                            <div :class="{'options-sel':curSelOpIndex==item.ask_info.options.length,'options':true'}"
+                                 @click="sel_opt(item.ask_info.options.length,0)" ref="options">
+                                <div class="A" v-html="opts[item.ask_info.options.length]+'.'"></div>
+                                <div class="opt-con">
+                                    <div class="opt">我不会做</div>
+                                </div>
+                            </div>
+                        </div>
+                        {# 解析部分#}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+new Vue({
+    el: '#app',
+    data: {
+        // 空白页面加U宠样式变量
+        loading: true,
+        load_type: 5,
+        // 返回弹窗
+        is_back: false,
+        // 试题
+        opts: ["A", "B", "C", "D", "E", "F"],
+        q_show: true,// 显示题干信息
+        cur_num: 1,// 当前题目数量
+        curSelOpIndex: -1, // 选中的选项索引
+        opt_is_hit: true, // 选项是否可点击
+        show_jx: false, // 显示解析
+        q_data: {
+            "total_num": 2,
+            "q_list": [
+                {
+                    "is_expired": 1,
+                    "q_id": 87193,
+                    "structure": 2,
+                    "q_no": 1,
+                    "subject": {
+                        "content": "我是大题题干我是大题题干我是大题题干我是大题题干我是大题题干我是大题题干我是大题题干我是大题题干我是大题题干",
+                        "image_url": ""
+                    },
+                    "text_direction": "aaaaaa",
+                    "video": {
+                        "video_url": "",
+                        "video_image": ""
+                    },
+                    "ask_info": {
+                        "ask_type": 0,
+                        "ask_id": 70390,
+                        "ask_no": 1,
+                        "silu_list": [
+                            {
+                                "no": "一",
+                                "direction": "选项1",
+                                "step_list": [
+                                    {
+                                        "direction": "选项1",
+                                        "content": {
+                                            "content": "选项1",
+                                            "image_url": ""
+                                        },
+                                        "id": 446280
+                                    }
+                                ]
+                            }
+                        ],
+                        "subject": {
+                            "content": "$\\frac{1}{a} + \\frac{2}{b} = \\frac{3}{b}$",
+                            "image_url": ""
+                        },
+                        "options": [
+                            {
+                                "content": {
+                                    "content": '$\\frac{1}{a} + \\frac{2}{b} = \\frac{3}{b}$',
+                                    "image_url": ""
+                                },
+                                "option": "A",
+                                "is_right": 1
+                            },
+                            {
+                                "content": {
+                                    "content": '$\\frac{1}{a} + \\frac{2}{b} = \\frac{3}{b}$',
+                                    "image_url": ""
+                                },
+                                "option": "B",
+                                "is_right": 0
+                            },
+                            {
+                                "content": {
+                                    "content": '$\\frac{1}{a} + \\frac{2}{b} = \\frac{3}{b}$',
+                                    "image_url": ""
+                                },
+                                "option": "C",
+                                "is_right": 0
+                            }
+                        ]
+                    },
+                    "er_id": 1
+                },
+                {
+                    "is_expired": 1,
+                    "q_id": 87193,
+                    "structure": 2,
+                    "q_no": 1,
+                    "subject": {
+                        "content": "我是大题题干我是大题题干我是大题题干我是大题题干我是大题题干我是大题题干我是大题题干我是大题题干我是大题题干",
+                        "image_url": ""
+                    },
+                    "text_direction": "aaaaaa",
+                    "video": {
+                        "video_url": "",
+                        "video_image": ""
+                    },
+                    "ask_info": {
+                        "ask_type": 0,
+                        "ask_id": 70390,
+                        "ask_no": 2,
+                        "silu_list": [
+                            {
+                                "no": "一",
+                                "direction": "选项1",
+                                "step_list": [
+                                    {
+                                        "direction": "选项1",
+                                        "content": {
+                                            "content": "选项1",
+                                            "image_url": ""
+                                        },
+                                        "id": 446280
+                                    }
+                                ]
+                            }
+                        ],
+                        "subject": {
+                            "content": "$\\frac{1}{a} + \\frac{2}{b} = \\frac{3}{b}$",
+                            "image_url": ""
+                        },
+                        "options": [
+                            {
+                                "content": {
+                                    "content": '$\\frac{1}{a} + \\frac{2}{b} = \\frac{3}{b}$',
+                                    "image_url": ""
+                                },
+                                "option": "A",
+                                "is_right": 1
+                            },
+                            {
+                                "content": {
+                                    "content": '$\\frac{1}{a} + \\frac{2}{b} = \\frac{3}{b}$',
+                                    "image_url": ""
+                                },
+                                "option": "B",
+                                "is_right": 0
+                            },
+                            {
+                                "content": {
+                                    "content": '$\\frac{1}{a} + \\frac{2}{b} = \\frac{3}{b}$',
+                                    "image_url": ""
+                                },
+                                "option": "C",
+                                "is_right": 0
+                            }
+                        ]
+                    },
+                    "er_id": 1
+                }
+            ],
+            "pid": 2
+        }
+    },
+    computed: {
+        load_txt() {
+            if (this.load_type === 1) {
+                return '加载中，请稍后...'
+            } else if (this.load_type === 2) {
+                return '请使用“微信”扫一扫哦~'
+            } else if (this.load_type === 3) {
+                return '恭喜你，完成本次作业~'
+            } else if (this.load_type === 4) {
+                return '本次课没有需要提交的<br>作业送你小花花~'
+            } else {
+                return "这个二维码已经过期啦~<br>下次要早点交作业哦~"
+            }
+        },
+    },
+    created() {
+        //this.check_is_wx()
+        this.loadMath();
+    },
+    methods: {
+        loadMath() {
+            MathJax.Hub.Config({
+                styles: {"#MathJax_Message": {display: 'none'}},
+                tex2jax: {
+                    inlineMath: [['$', '$'], ["\\(", "\\)"]],
+                    displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+                    processEscapes: true
+                },
+                "HTML-CSS": {linebreaks: {automatic: true, width: "container"}},
+                showMathMenu: false
+            })
+        },
+        check_is_wx() {
+            // 检查是否是微信登陆
+            var ua = navigator.userAgent.toLowerCase();
+            if (ua.indexOf("micromessenger") == -1) {
+                console.log('非微信扫码')
+                this.load_type = 2
+                this.loading = true;
+                this.q_show = false;
+            } else {
+                // 初始化数据
+            }
+        },
+        sel_opt(index, is_right) {
+            if (!this.opt_is_hit) {
+                return
+            }
+            // 选择选项
+            this.curSelOpIndex = index
+            let valObj = {
+                user_answer: this.opts[index], // 用户选择
+                // eslint-disable-next-line eqeqeq
+                status: is_right, // 答题结果 1:答对 2:答错
+                index: index,
+            };
+            this.opt_is_hit = false  // 设置为选项不可点击
+
+        },
+        next_ques() {
+            // 进入下一题
+            this.opt_is_hit = true
+            this.curSelOpIndex = -1;
+            this.cur_num = (this.cur_num === this.q_data.total_num ? this.cur_num : this.cur_num + 1);// 当前进度加1
+            this.loadMath();
+        },
+        ask_info_sub(item) {
+            // 返回小题题干，兼容一题一问和一题多问
+            if (item.ask_info.ask_no === 0) {
+                return item.q_no + '.' + item.ask_info.subject.content
+            } else {
+                return '(' + item.ask_info.ask_no + ').' + item.ask_info.subject.content
+            }
+        }
+    },
+    watch: {}
+
+
+});
+</script>
+
+</body>
+</html>

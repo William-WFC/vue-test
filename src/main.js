@@ -18,6 +18,9 @@ Vue.config.productionTip = false;
 // import ttt from './custom/keep_alive/cps/t1';
 // Vue.component('ttt', ttt);
 
+import rawDisplayer from 'COMPS/rawDisplayer';
+Vue.component('rawDisplayer', rawDisplayer);
+
 new Vue({
     data: {
         a: 'a',

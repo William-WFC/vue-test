@@ -33,7 +33,7 @@
                 console.log(e, 'onafterprint');
                 this.close(); // 打印之后关闭页面
             };
-            this.$router.push('/svg');
+            this.$router.push('/clone');
             // window.print(); // 打印
         }
     }
@@ -47,7 +47,7 @@
 
     #app {
         width: 100%;
-        height: 50%;
+        height: 100%;
         position: relative;
         .navi {
             position: fixed;
