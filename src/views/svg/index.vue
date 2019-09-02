@@ -82,6 +82,31 @@
             <path d="M10 180 Q 95 110 180 180" stroke="black" fill="transparent"/>
             <path d="M10 280 Q 52.5 210, 95 280 T 180 280" stroke="black" fill="transparent"/>
         </svg>
+        <a class="talk-play" role="button" href="#">
+            <i class="zj-icn zj-play">
+                <svg x="0" y="0" width="108px" height="108px" viewBox="0 0 216 216" class="play">
+                    <circle clip-path="url(#clipper)" fill="url(#ripple)" cx="108" cy="108" r="140.4"></circle>
+                </svg>
+                <svg x="0" y="0" width="0" height="0">
+                    <defs>
+                        <clipPath id="clipper">
+                            <circle cx="108" cy="108" r="100.44"></circle>
+                        </clipPath>
+                        <radialGradient id="ripple">
+                            <stop offset="0.534444" stop-color="#fff" stop-opacity="0.25">
+                                <animate attributeName="offset" values="0;0.70" begin="0.2s" dur="2.1s" repeatCount="indefinite"></animate>
+                            </stop>
+                            <stop offset="0.65111" stop-color="#fff" stop-opacity="0.35">
+                                <animate attributeName="offset" values="0.05;0.75" begin="0" dur="2.1s" repeatCount="indefinite"></animate>
+                            </stop>
+                            <stop offset="0.872856" stop-color="#fff" stop-opacity="0.25">
+                                <animate attributeName="offset" values="0.10;1" begin="0" dur="2.1s" repeatCount="indefinite"></animate>
+                            </stop>
+                        </radialGradient>
+                    </defs>
+                </svg>
+            </i>
+        </a>
     </div>
 </template>
 
@@ -117,6 +142,29 @@
 </script>
 
 <style lang="scss" scoped>
+.talk-play {
+    background-color: black;
+    pointer-events: none;
+    position: absolute;
+    left: 150px;
+    top: 50px;
+    z-index: 3;
+    cursor: pointer;
+    text-decoration: none;
+    -webkit-transition: none 86ms ease-out;
+    transition: none 86ms ease-out;
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    /*background: transparent;*/
+    .zj-play {
+        width: 112px;
+        height: 112px;
+        background: url(https://www.zaojiu.com/assets/images/play.png) 50% no-repeat;
+        background-size: 100%;
+    }
+}
     .svg {
         /*margin: 0 auto;*/
         margin-left: 200px;

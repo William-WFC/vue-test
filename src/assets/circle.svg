@@ -1,0 +1,18 @@
+<svg x="0" y="0" width="0" height="0">
+    <defs>
+        <clipPath id="clipper">
+            <circle cx="108" cy="108" r="100.44"></circle>
+        </clipPath>
+        <radialGradient id="ripple">
+            <stop offset="0.0337027" stop-color="#fff" stop-opacity="0.25">
+                <animate attributeName="offset" values="0;0.70" begin="0.2s" dur="2.1s" repeatCount="indefinite"></animate>
+            </stop>
+            <stop offset="0.150369" stop-color="#fff" stop-opacity="0.35">
+                <animate attributeName="offset" values="0.05;0.75" begin="0" dur="2.1s" repeatCount="indefinite"></animate>
+            </stop>
+            <stop offset="0.229046" stop-color="#fff" stop-opacity="0.25">
+                <animate attributeName="offset" values="0.10;1" begin="0" dur="2.1s" repeatCount="indefinite"></animate>
+            </stop>
+        </radialGradient>
+    </defs>
+</svg>
