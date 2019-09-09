@@ -122,5 +122,11 @@ export default new Router({
                 require(['../views/drop/clone.vue'], resolve);
             }
         },
+        {
+            path: '/css_shape',
+            component(resolve) {
+                require(['../views/css/css_shape.vue'], resolve);
+            }
+        },
     ]
 })

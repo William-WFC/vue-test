@@ -33,7 +33,7 @@
                 console.log(e, 'onafterprint');
                 this.close(); // 打印之后关闭页面
             };
-            this.$router.push('/svg');
+            this.$router.push('/css_shape');
             // window.print(); // 打印
         }
     }
