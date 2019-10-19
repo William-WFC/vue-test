@@ -15,6 +15,11 @@
             <span :class="{one: myObj.one}" @click="clickedOne">one: {{myObj.one}}</span>
             <span :class="{two: myObj.two}" @click="clickedTwo">two: {{myObj.two}}</span>
         </div>
+        <select name="" id="">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
     </div>
 </template>
 

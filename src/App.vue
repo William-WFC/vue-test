@@ -1,5 +1,6 @@
 <template>
     <div id="app">
+        123
         <transition name="slide-fade">
             <router-view class="box"/>
         </transition>
