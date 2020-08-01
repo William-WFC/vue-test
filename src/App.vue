@@ -25,6 +25,7 @@
             }
         },
         created() {
+            this.$router.push('/directives');
         },
         mounted() {
             window.onbeforeprint = function() {
@@ -44,6 +45,14 @@
     html,body {
         width: 100%;
         height: 100%;
+    }
+    .test {
+        position: fixed;
+        bottom: 30px;
+        width: 50%;
+        background-color: blue;
+        color: white;
+        height: 50px;
     }
 
     #app {
