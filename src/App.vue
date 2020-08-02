@@ -1,6 +1,5 @@
 <template>
     <div id="app">
-        123
         <transition name="slide-fade">
             <router-view class="box"/>
         </transition>
@@ -25,7 +24,7 @@
             }
         },
         created() {
-            this.$router.push('/directives');
+            // this.$router.push('/directives');
         },
         mounted() {
             window.onbeforeprint = function() {
@@ -35,7 +34,7 @@
                 console.log(e, 'onafterprint');
                 this.close(); // 打印之后关闭页面
             };
-            this.$router.push('/css_shape');
+            this.$router.push('/test4');
             // window.print(); // 打印
         }
     }
