@@ -103,32 +103,8 @@ export default {
             }
         },
         writeClone() {
-            function clone(obj) {
-                return JSON.parse(JSON.stringify(obj));
-            }
 
-            function deepClone(source) {
-                if (source instanceof Object) {
-                    let target;
-                    if (source instanceof Array) {
-                        target = new Array();
-                    } else if (source instanceof Function) {
-                        target = function () {
-                            return source.apply(this, arguments);
-                        };
-                    } else if (source instanceof Date) {
-                        target = new Date(source);
-                    } else if (source instanceof RegExp) {
-                        target = new RegExp(source.source, source.flags);
-                    }
-                    for (let key in source) {
-                        if (source.hasOwnProperty(key)) { // 不拷贝原型上的属性，太浪费内存
-                            target[key] = deepClone(source[key]); // 递归克隆
-                        }
-                    }
-                    return target;
-                }
-            }
+
         },
         testFn(...arg) {
             console.log(...arg);
